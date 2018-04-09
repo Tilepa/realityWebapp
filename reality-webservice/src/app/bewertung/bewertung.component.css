@@ -1,0 +1,139 @@
+@media only screen and (min-width: 680px) {
+  #container-bewertung {
+    max-width: 40em;
+    padding: 50px;
+    box-shadow: 0 0 10px rgb(220,220,220);
+    border-radius: 5px;
+  }
+}
+
+#container-bewertung {
+  margin-top: 20px;
+}
+
+/* The container */
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a reality-green background */
+.radio-container input:checked ~ .checkmark {
+  background-color: rgb(127, 186, 36);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Star Rating */
+div.stars {
+  width: auto;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-6:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-3:checked ~ label.star:before { color: #FF8C00; }
+input.star-2:checked ~ label.star:before { color: #F62; }
+input.star-1:checked ~ label.star:before { color: #FF0000; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+/* End: Star Rating */
+
+
+/* Own CSS-rules */
+.reality-focusstyle:focus {
+  border-color: rgba(105, 105, 105, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(105, 105, 105, .6);
+}
+
+::selection, select:focus::-ms-value {
+  background-color: gray;
+  color: orange;
+}
+
+a {
+  background-color: rgb(127, 186, 36);
+  border-color: rgb(127, 186, 36);
+}
+
+a:active,
+a:focus,
+a:hover {
+  background-color: rgb(115, 170, 35);
+  border-color: rgb(112, 170, 35);
+}
+

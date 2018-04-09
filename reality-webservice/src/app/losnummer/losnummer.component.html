@@ -1,0 +1,26 @@
+<div class="container text-center" id="losnummer-container">
+  <img src="../../assets/losnummer_logo.png" alt="Losnummer Logo" width="100px" height="auto">
+  <h2>
+    {{title}}
+  </h2>
+
+  <div class="alert alert-success text-left small" role="alert">
+    <p>Bitte gib deine Losnummer ein und fülle den Bewertungsbogen auf der nächsten Seite aus, um an dem Gewinnspiel teilzunehmen.</p>
+  </div>
+
+
+  <div class="container text-left">
+    <form>
+      <div class="form-group">
+        <label for="losnummerInput">Losnummer</label>
+        <input class="form-control is-invalid" type="text" id="losnummerInput" placeholder="Nummer eingeben"
+               #losnummer required>
+        <div class="invalid-feedback">Die Losnummer ist bereits verbraucht!</div>
+      </div>
+      <button type="button" id="losnummerButton" class="btn btn-primary" (click)="checkLosnummer(losnummer.value)"
+              routerLink="/bewertung" routerLinkActive="active">
+        Bewertung starten
+      </button>
+    </form>
+  </div>
+</div>

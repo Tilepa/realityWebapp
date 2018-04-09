@@ -1,0 +1,125 @@
+<div class="container" id="container-bewertung">
+  <!-- Bewertung Vortrag oder Gespraech am Messestand -->
+  <p class="font-weight-bold">
+    Ich habe auf der REALITY an dem
+  </p>
+  <div class="container mt-3 mb-3">
+    <label class="radio-container">Vortrag/Präsentation
+      <input type="radio" name="radioBesuchsart" id="radio-vort">
+      <span class="checkmark"></span>
+    </label>
+    <label class="radio-container">Gespräch am Messestand
+      <input type="radio" name="radioBesuchsart" id="radio-gespr">
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
+  <!-- Auswahl der Unternehmen -->
+  <p class="font-weight-bold">
+    des folgenden Unternehmens teilgenommen:
+  </p>
+  <div class="container mt-3 mb-3">
+    <select class="custom-select mt-3 mb-3 reality-focusstyle" id="select-unte" #selComp>
+      <option selected>Name des Unternehmens</option>
+      <option *ngFor="let item of unternehmensListe" [value]="item.id">{{item.name}}</option>
+    </select>
+  </div>
+
+  <!--Star Rating für den Realitaetsbezug -->
+  <p class="font-weight-bold">
+    Den Realitätsbezug des Gesprächs bzw. des Vortrags über die Arbeit in dem Unternehmen bewerte ich mit:
+  </p>
+  <div class="mt-3 mb-3 text-center">
+    <div class="stars">
+      <form action="">
+        <input class="star star-6" id="star-6-real" type="radio" name="star-real" required/>
+        <label class="star star-6" for="star-6-real"></label>
+
+        <input class="star star-5" id="star-5-real" type="radio" name="star-real" required/>
+        <label class="star star-5" for="star-5-real"></label>
+
+        <input class="star star-4" id="star-4-real" type="radio" name="star-real" required/>
+        <label class="star star-4" for="star-4-real"></label>
+
+        <input class="star star-3" id="star-3-real" type="radio" name="star-real" required/>
+        <label class="star star-3" for="star-3-real"></label>
+
+        <input class="star star-2" id="star-2-real" type="radio" name="star-real" required/>
+        <label class="star star-2" for="star-2-real"></label>
+
+        <input class="star star-1" id="star-1-real" type="radio" name="star-real" required/>
+        <label class="star star-1" for="star-1-real"></label>
+      </form>
+    </div> <!-- star -->
+  </div> <!-- container-->
+
+  <!-- Star Rating für die Grundsaetzliche Attraktivitaet -->
+  <p class="font-weight-bold">
+    Die grundsätzliche Attraktivität des Unternehmens als Arbeitgeber bewerte ich mit:
+    <br>
+    <span class="font-weight-light small">(ohne Berücksichtigung des Vortrags / Gesprächs)</span>
+  </p>
+  <div class="mt-3 mb-3 text-center">
+    <div class="stars">
+      <form action="">
+        <input class="star star-6" id="star-6-attr" type="radio" name="star-attr" required/>
+        <label class="star star-6" for="star-6-attr"></label>
+
+        <input class="star star-5" id="star-5-attr" type="radio" name="star-attr" required/>
+        <label class="star star-5" for="star-5-attr"></label>
+
+        <input class="star star-4" id="star-4-attr" type="radio" name="star-attr" required/>
+        <label class="star star-4" for="star-4-attr"></label>
+
+        <input class="star star-3" id="star-3-attr" type="radio" name="star-attr" required/>
+        <label class="star star-3" for="star-3-attr"></label>
+
+        <input class="star star-2" id="star-2-attr" type="radio" name="star-attr" required/>
+        <label class="star star-2" for="star-2-attr"></label>
+
+        <input class="star star-1" id="star-1-attr" type="radio" name="star-attr" required/>
+        <label class="star star-1" for="star-1-attr"></label>
+      </form>
+    </div> <!-- star -->
+  </div> <!-- container-->
+
+  <!-- Anemerkungen zum Unternehmen -->
+  <p class="font-weight-bold">
+    Außerdem möchte ich folgende Anmerkungen des Unternehmens machen:
+  </p>
+  <div class="container">
+    <textarea class="form-control mt-3 mb-3 reality-focusstyle" id="textarea-anme" rows="5" placeholder="z.B. Mir gefallen die Entwicklungsmöglichkeiten."></textarea>
+  </div>
+
+  <!-- Persönliche Angaben -->
+  <p class="font-weight-bold">
+    Dein Name:
+  </p>
+  <div class="container">
+    <div class="form-group">
+      <label for="text-firstname" class="form-">Vorname</label>
+      <input type="text" class="form-control reality-focusstyle" id="text-firstname" placeholder="bitte eingeben" required>
+      <label for="text-lastname">Nachname</label>
+      <input type="text" class="form-control reality-focusstyle" id="text-lastname" placeholder="bitte eingeben" required>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="container">
+    <button class="btn btn-primary">Bewertung abgeben</button>
+    <a class="btn reality-focusstyle">Bewertung abgeben</a>
+  </div>
+
+  <!-- Schlusstext -->
+  <div class="container mt-5 mb-3">
+    <h2 style="color: rgb(127, 186, 36)">DER REALITY-FAKTOR</h2>
+    <p>Der <span class="font-weight-bold">REALITY-Faktor</span> ist Dein persönlicher
+      Maßstab für den Eindruck, den ein Unternehmen mit seinem Messeauftritt, im persönlichen Gespräch
+      oder durch einen Praxisvortrag bei Dir hinterlassen hat – im positiven oder negativen Sinn.
+    </p>
+    <p>
+      Die am besten bewerteten Unternehmen werden nach der REALITY als Gewinnerunternehmen des
+      REALITY-Faktors öffentlich gemacht.
+    </p>
+  </div>
+</div> <!-- container -->

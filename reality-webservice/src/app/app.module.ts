@@ -12,8 +12,10 @@ import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 import {AuthGuard} from './auth.service';
 import {routes} from './app.routes';
-import { LoginEmailComponent } from './login-email/login-email.component';
+import {LoginEmailComponent} from './login-email/login-email.component';
 import {AngularFireAuthModule} from "angularfire2/auth";
+import {MatTabsModule} from '@angular/material/tabs';
+import {RealityMenuComponent} from './reality-menu/reality-menu.component';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -32,7 +34,8 @@ export const firebaseConfig = {
 		BewertungComponent,
 		LoginComponent,
 		SignupComponent,
-		LoginEmailComponent
+		LoginEmailComponent,
+		RealityMenuComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -40,7 +43,8 @@ export const firebaseConfig = {
 		HttpModule,
 		AngularFireModule.initializeApp(firebaseConfig),
 		AngularFireAuthModule,
-		routes
+		routes,
+		MatTabsModule
 	],
 	providers: [AuthGuard, UnternehmenService],
 	bootstrap: [AppComponent]

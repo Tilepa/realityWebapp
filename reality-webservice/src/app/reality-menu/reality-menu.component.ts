@@ -28,4 +28,9 @@ export class RealityMenuComponent implements OnInit {
 
 	}
 
+	isActiveComponent(id) {
+		console.log(id)
+		return true;
+	}
+
 }

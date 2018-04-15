@@ -3,6 +3,7 @@ import {AngularFire, AuthProviders, AuthMethods} from 'firebase/auth';
 import {Router} from '@angular/router';
 import {moveIn, fallIn} from '../router.animations';
 import {AngularFireAuth} from "angularfire2/auth";
+import {AuthGuard} from ".././auth.service";
 
 @Component({
 	selector: 'app-signup',
@@ -15,20 +16,16 @@ export class SignupComponent implements OnInit {
 	state: string = '';
 	error: any;
 
-	constructor(public af: AngularFireAuth, private router: Router) {
+	constructor(public af: AngularFireAuth, private router: Router, public authService: AuthGuard) {
 	}
 
 	onSubmit(formData) {
 		if (formData.valid) {
-			console.log(formData.value);
-			this.af.auth.createUserWithEmailAndPassword(formData.value.email, formData.value.password)
-				.then(
-					(success) => {
-						this.router.navigate(['/losnummer'])
-					}).catch(
-				(err) => {
-					this.error = err;
-				})
+			this.authService.createUserByEmailAndPassword(formData.value.email, formData.value.password).then((credentials) => {
+				this.router.navigate(['/'])
+			}).catch((error) => {
+				this.error = error
+			})
 		}
 	}
 

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from '@angular/router';
 import {moveIn} from '../router.animations';
-import * as firebase from "firebase";
+import {AuthGuard} from "../auth.service";
 
 @Component({
 	selector: 'app-login',
@@ -14,36 +14,26 @@ import * as firebase from "firebase";
 export class LoginComponent implements OnInit {
 	error: any;
 
-	constructor(public af: AngularFireAuth, private router: Router) {
+	constructor(public af: AngularFireAuth, private router: Router, private authService: AuthGuard) {
 
 		this.af.authState.subscribe(auth => {
 			if (auth) {
-				this.router.navigateByUrl('/losnummer');
+				this.router.navigateByUrl('/');
 			}
 		});
 
 	}
 
 	loginFb() {
-		this.af.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-			.then(
-				(success) => {
-					this.router.navigate(['/losnummer']);
-				}).catch(
-			(err) => {
-				this.error = err;
-			})
+		this.authService.facebookLogin().then((succeeded) => {
+			this.router.navigate(['/']);
+		})
 	}
 
 	loginGoogle() {
-		this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-			.then(
-				(success) => {
-					this.router.navigate(['/losnummer']);
-				}).catch(
-			(err) => {
-				this.error = err;
-			})
+		this.authService.googleLogin().then((succeeded) => {
+			this.router.navigate(['/']);
+		})
 	}
 
 	ngOnInit() {

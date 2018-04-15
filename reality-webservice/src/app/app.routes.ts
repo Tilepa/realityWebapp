@@ -8,7 +8,7 @@ import {LosnummerComponent} from './losnummer/losnummer.component';
 import {LoginEmailComponent} from "./login-email/login-email.component";
 
 export const router: Routes = [
-	{path: '', redirectTo: 'login', pathMatch: 'full'},
+	{path: '', redirectTo: 'losnummer', pathMatch: 'full'},
 	{path: 'login', component: LoginComponent},
 	{path: 'signup', component: SignupComponent},
 	{path: 'email', component: LoginEmailComponent},

@@ -3,22 +3,23 @@ import {AngularFire, AuthProviders, AuthMethods} from 'firebase/auth';
 import {Router} from '@angular/router';
 import {moveIn, fallIn} from '../router.animations';
 import {AngularFireAuth} from "angularfire2/auth";
+import {AuthGuard} from "../auth.service";
 
 @Component({
 	selector: 'app-login-email',
 	templateUrl: './login-email.component.html',
 	styleUrls: ['./login-email.component.css'],
 	animations: [moveIn(), fallIn()],
-	host: {'[@moveIn]': ''}
+	//host: {'[@moveIn]': ''}
 })
 export class LoginEmailComponent implements OnInit {
 	state: string = '';
 	error: any;
 
-	constructor(public af: AngularFireAuth, private router: Router) {
+	constructor(public af: AngularFireAuth, private router: Router, private authService: AuthGuard) {
 		this.af.authState.subscribe(auth => {
 			if (auth) {
-				this.router.navigateByUrl('/losnummer');
+				this.router.navigateByUrl('/');
 			}
 		});
 	}
@@ -26,16 +27,16 @@ export class LoginEmailComponent implements OnInit {
 
 	onSubmit(formData) {
 		if (formData.valid) {
-			console.log(formData.value);
-			this.af.auth.signInWithEmailAndPassword(formData.value.email, formData.value.pasword).then(
-				(success) => {
-					console.log(success);
-					this.router.navigate(['/losnummer']);
-				}).catch(
-				(err) => {
-					console.log(err);
-					this.error = err;
-				})
+			console.log('try login');
+			console.log(formData.value.email)
+			this.authService.loginWithEmailAndPassword(formData.value.email, formData.value.password).then((credentials) => {
+				console.log('success');
+				this.router.navigate(['/']);
+			}).catch((error) => {
+				// Handle Errors here.
+				this.error = error;
+				console.log('error')
+			});
 		}
 	}
 

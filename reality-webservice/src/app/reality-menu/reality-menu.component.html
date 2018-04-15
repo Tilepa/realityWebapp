@@ -8,8 +8,11 @@
 			<li class="losnummer"><a class="active" href="losnummer">Losnummer</a></li>
 			<li class="bewertung"><a href="bewertung">Bewertung</a></li>
 
-			<li class="nav-right signup"><a href="signup">Registrieren</a></li>
-			<li class="nav-right login"><a href="login">Login</a></li>
+			<li class="nav-right login">
+				<a href="login" *ngIf="isLoggedIn() === false">Login</a>
+				<a (click)="logOut()" *ngIf="isLoggedIn() === true">Logout</a>
+			</li>
+			<li class="nav-right signup"><a href="signup" *ngIf="isLoggedIn() === false">Registrieren</a></li>
 		</ul>
 	</div>
 </div>

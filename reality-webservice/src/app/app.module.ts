@@ -16,6 +16,8 @@ import {LoginEmailComponent} from './login-email/login-email.component';
 import {AngularFireAuthModule} from "angularfire2/auth";
 import {MatTabsModule} from '@angular/material/tabs';
 import {RealityMenuComponent} from './reality-menu/reality-menu.component';
+import {AngularFirestoreModule} from "angularfire2/firestore";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -43,6 +45,8 @@ export const firebaseConfig = {
 		HttpModule,
 		AngularFireModule.initializeApp(firebaseConfig),
 		AngularFireAuthModule,
+		AngularFirestoreModule,
+		BrowserAnimationsModule,
 		routes,
 		MatTabsModule
 	],

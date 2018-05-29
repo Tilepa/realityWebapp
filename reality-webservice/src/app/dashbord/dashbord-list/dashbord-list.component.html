@@ -1,0 +1,117 @@
+<!-- Container für die Losnummertabelle -->
+
+<!--<mat-form-field>-->
+  <!--<input matInput type="text" placeholder="Filter">-->
+<!--</mat-form-field>-->
+
+<!--<div class="mat-elevation-z8">-->
+  <!--<table mat-table [dataSource]="dataSource" matSort>-->
+
+    <!--&lt;!&ndash; Losnummer Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="id">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.id}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Verwendung Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="utilized">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Verwendung </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.utilized}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Typ Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="kindOfReview">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Typ </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.kindOfReview}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Unternehmen Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="company">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Unternehmen </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.company}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Reality Faktor Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="realityFactor">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Realitätsfaktor </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.realityFactor}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Attraktivity Faktor Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="attractivityFactor">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Attraktivitätsfaktor </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.attractivityFactor}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Bemerkung Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="annotation">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Bemerkung </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.annotation}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Nachname Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="lastname">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Nachname </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.lastname}} </td>-->
+    <!--</ng-container>-->
+
+    <!--&lt;!&ndash; Vorname Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="firstname">-->
+      <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Vorname </th>-->
+      <!--<td mat-cell *matCellDef="let element of dataSource"> {{element.firstname}} </td>-->
+    <!--</ng-container>-->
+
+    <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+    <!--<tr mat-row *matRowDef="let element of dataSource; columns: displayedColumns;">-->
+    <!--</tr>-->
+  <!--</table>-->
+
+  <!--<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>-->
+<!--</div>-->
+
+<!--<hr>-->
+
+
+<div class="container-fluid">
+  <h2>
+    Liste der Losnummern im Bestand
+  </h2>
+
+  <div style="margin-bottom: 2em; margin-top: 2em">
+    <button class="btn btn-success">
+      <i class="fa fa-plus-circle"></i>
+      Neues Los generieren
+    </button>
+  </div>
+
+  <table class="table table-responsive-md table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Losnummer</th>
+      <th scope="col">Verwertet</th>
+      <th scope="col">Art</th>
+      <th scope="col">Unternehmen</th>
+      <th scope="col">Reality Faktor</th>
+      <th scope="col">Attractivity Faktor</th>
+      <th scope="col">Bemerkung</th>
+      <th scope="col" >Nachname</th>
+      <th scope="col">Vorname</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let listItem of listOfReviews, let i=index">
+      <th scope="row">{{i}}</th>
+      <td>{{listItem.id}}</td>
+      <td>{{listItem.utilized}}</td>
+      <td>{{listItem.kindOfReview}}</td>
+      <td>{{listItem.company}}</td>
+      <td>{{listItem.realityFactor}}</td>
+      <td>{{listItem.attractivityFactor}}</td>
+      <td>{{listItem.annotation}}</td>
+      <td>{{listItem.lastname}}</td>
+      <td>{{listItem.firstname}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

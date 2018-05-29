@@ -1,15 +1,4 @@
-@media only screen and (min-width: 680px) {
-  #container-bewertung {
-    max-width: 40em;
-    padding: 50px;
-    box-shadow: 0 0 10px rgb(220,220,220);
-    border-radius: 5px;
-  }
-}
-
-#container-bewertung {
-  margin-top: 20px;
-}
+@import "../../styles.css";
 
 /* The container */
 .radio-container {

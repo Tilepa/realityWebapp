@@ -1,0 +1,39 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       routerLink="./"
+    >
+      Übersicht
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       routerLink="./dashbord-list"
+    >
+      Losnummerliste
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       routerLink="./dashbord-ziehung"
+    >
+      Ziehung
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Gewinne
+    </a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

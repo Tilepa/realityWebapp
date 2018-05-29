@@ -1,26 +1,60 @@
-<div class="container text-center" id="losnummer-container">
+<div class="container reality-container text-center">
+
   <img src="../../assets/losnummer_logo.png" alt="Losnummer Logo" width="100px" height="auto">
   <h2>
-    {{title}}
+    Gewinnspiel 2018
   </h2>
 
+
   <div class="alert alert-success text-left small" role="alert">
-    <p>Bitte gib deine Losnummer ein und fülle den Bewertungsbogen auf der nächsten Seite aus, um an dem Gewinnspiel teilzunehmen.</p>
+    <p>
+      Bitte gib deine 4stellige Losnummer ein und fülle den Bewertungsbogen auf der nächsten Seite aus, um an dem Gewinnspiel
+      teilzunehmen.
+    </p>
   </div>
 
 
   <div class="container text-left">
-    <form>
+    <form novalidate
+          #losnummerForm="ngForm"
+          (ngSubmit)="checkTicketNumber()"
+    >
       <div class="form-group">
-        <label for="losnummerInput">Losnummer</label>
-        <input class="form-control is-invalid" type="text" id="losnummerInput" placeholder="Nummer eingeben"
-               #losnummer required>
-        <div class="invalid-feedback">Die Losnummer ist bereits verbraucht!</div>
+        <label for="losnummerInput">
+          Losnummer
+        </label>
+
+        <input type="text"
+               placeholder="Nummer eingeben"
+               class="form-control reality-focus"
+               autofocus
+               id="losnummerInput"
+               name="losnummer"
+               [(ngModel)]="ticketNumber"
+               [ngClass]="classConfig"
+               required
+               minlength="4"
+               maxlength="4"
+        >
+        <div class="alert alert-danger small" *ngIf="invalidTicket">
+          Die Losnummer ist ungültig oder bereits verbraucht!
+        </div>
       </div>
-      <button type="button" id="losnummerButton" class="btn btn-primary" (click)="checkLosnummer(losnummer.value)"
-              routerLink="/bewertung" routerLinkActive="active">
+
+      <!-- Submit -->
+      <button type="submit"
+              class="btn reality-focus reality-btn-hover"
+              [disabled]="!losnummerForm.valid"
+      >
         Bewertung starten
       </button>
     </form>
+
+
+    <!--Info-->
+    <div class="alert alert-info text-left small" style="margin-top: 4em">
+      Bei Fragen, Anregungen oder Problemen mit der Eingabe der Losnummer,
+      wende dich an den Infostand am Haupteingang oder an einen unserer REALITY-Paten!
+    </div>
   </div>
 </div>

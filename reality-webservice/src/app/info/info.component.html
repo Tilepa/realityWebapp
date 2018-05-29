@@ -1,0 +1,52 @@
+<div class="container reality-container">
+  <div class="text-center">
+    <button mat-raised-button color="warn"
+            matTooltip="Hier gehts zum Gewinnspiel"
+            aria-tooltip="Button that displays and hides a tooltip triggered by other buttons"
+            routerLink="/losnummer"
+    >
+      Gewinnspiel Teilnahme
+    </button>
+  </div>
+
+  <h2>
+    Programm
+  </h2>
+
+  <mat-tab-group color="primary">
+    <mat-tab label="R1.056">
+      <table class="table table-sm table-responsive-sm mt-4">
+        <caption>Raum OH12/1.056</caption>
+        <thead class="thead-light">
+        <th scope="col">Beginn</th>
+        <th scope="col">Unternehmen</th>
+        <th scope="col">Vortragstitel</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of programmList">
+          <th scope="row">{{item[0]}}</th>
+          <td style="color: green">{{item[1]}}</td>
+          <td class="small">{{item[2]}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="R/1.026">
+      <table class="table table-sm table-responsive-sm mt-4">
+        <caption>Raum OH12/1.026</caption>
+        <thead class="thead-light">
+        <th scope="col">Beginn</th>
+        <th scope="col">Unternehmen</th>
+        <th scope="col">Vortragstitel</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of programmList">
+          <th scope="row">{{item[0]}}</th>
+          <td style="color: green">{{item[3]}}</td>
+          <td class="small">{{item[4]}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

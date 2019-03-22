@@ -1,8 +1,8 @@
 package router
 
 import (
+	"backend-services/mongodbTest/src/news"
 	"github.com/gorilla/mux"
-	"services/mongodbTest/news"
 )
 func SetupRouters() *mux.Router {
 	router := mux.NewRouter()

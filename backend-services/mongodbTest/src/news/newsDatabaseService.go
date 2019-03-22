@@ -1,9 +1,9 @@
 package news
 
 import (
+	"backend-services/mongodbTest/src/config"
 	"github.com/pkg/errors"
 	"gopkg.in/mgo.v2"
-	"services/mongodbTest/config"
 )
 
 type NewsService struct {
@@ -12,7 +12,7 @@ type NewsService struct {
 
 func NewUserService(session *mgo.Session, config *config.MongoConfig) *NewsService {
 	collection := session.DB(config.DbName).C("news")
-	return &NewsService {collection}
+	return &NewsService{collection}
 }
 
 func (s *NewsService) CreateNews(news *News) error {
@@ -27,10 +27,10 @@ func (s *NewsService) UpdateNews(news *News) error {
 	if news == nil {
 		return errors.New("news object could not be null")
 	}
-	if news.Id == "" {
+	if news.ID == "" {
 		return errors.New("news object must have an existing id")
 	}
-	return s.collection.UpdateId(news.Id, &news)
+	return s.collection.UpdateId(news.ID, &news)
 }
 
 func (s *NewsService) GetNewsById(id string) (*News, error) {

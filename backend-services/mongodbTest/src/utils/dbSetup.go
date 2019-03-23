@@ -1,9 +1,9 @@
 package utils
 
 import (
-	"backend-services/mongodbTest/src/config"
 	"fmt"
 	"gopkg.in/mgo.v2"
+	"mongodbTest/src/config"
 )
 
 func GetDatabaseClient() *mgo.Database {

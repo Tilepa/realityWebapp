@@ -1,10 +1,10 @@
 package news
 
 import (
-	"backend-services/mongodbTest/src/utils"
 	"github.com/pkg/errors"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+	"mongodbTest/src/utils"
 )
 
 type NewsService struct {

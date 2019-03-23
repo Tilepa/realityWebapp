@@ -1,10 +1,10 @@
 package news
 
 import (
-	"backend-services/mongodbTest/src/utils"
 	"encoding/json"
 	"github.com/gorilla/mux"
 	"io/ioutil"
+	"mongodbTest/src/utils"
 	"net/http"
 )
 

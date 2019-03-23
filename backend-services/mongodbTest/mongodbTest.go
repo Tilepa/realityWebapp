@@ -1,9 +1,9 @@
 package main
 
 import (
-	"backend-services/mongodbTest/src/config"
-	"backend-services/mongodbTest/src/router"
 	"log"
+	"mongodbTest/src/config"
+	"mongodbTest/src/router"
 	"net/http"
 )
 

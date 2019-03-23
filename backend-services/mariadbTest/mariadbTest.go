@@ -1,8 +1,8 @@
 package main
 
 import (
-	"backend-services/mariadbTest/src/setup"
 	"log"
+	"mariadbTest/src/setup"
 )
 
 func main() {

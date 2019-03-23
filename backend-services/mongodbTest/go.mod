@@ -1,4 +1,4 @@
-module backend-services/mongodbTest
+module mongodbTest
 
 go 1.12
 

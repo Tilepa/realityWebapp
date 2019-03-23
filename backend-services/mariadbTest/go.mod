@@ -1,4 +1,4 @@
-module backend-services/mariadbTest
+module mariadbTest
 
 go 1.12
 

@@ -1,7 +1,9 @@
 package news
 
+import "gopkg.in/mgo.v2/bson"
+
 type News struct {
-	ID      string `json:"_id" bson:"_id"`
-	Title   string `json:"title" bson:"title"`
-	Content string `json:"_id" bson:"_id"`
+	ID      bson.ObjectId `json:"_id,omitempty" bson:"_id,omitempty"`
+	Title   string `json:"title,omitempty" bson:"title,omitempty"`
+	Content string `json:"content,omitempty" bson:"content,omitempty"`
 }

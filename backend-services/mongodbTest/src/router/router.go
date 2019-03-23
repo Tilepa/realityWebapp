@@ -1,11 +1,14 @@
 package router
 
 import (
+	"backend-services/mongodbTest/src/config"
 	"backend-services/mongodbTest/src/news"
 	"github.com/gorilla/mux"
 )
 func SetupRouters() *mux.Router {
 	router := mux.NewRouter()
+
+	router.HandleFunc("/healthcheck", config.ConsulHealthCheck)
 
 	setupNewsRouters(router)
 
@@ -13,9 +16,9 @@ func SetupRouters() *mux.Router {
 }
 
 func setupNewsRouters(router *mux.Router) {
-	router.HandleFunc("/", news.GetNews).Methods("GET")
-	router.HandleFunc("/{id}", news.GetNewsById).Methods("GET")
-	router.HandleFunc("/", news.CreateNews).Methods("POST")
-	router.HandleFunc("/", news.UpdateNews).Methods("PUT")
-	router.HandleFunc("/{id}", news.DeleteNews).Methods("DELETE")
+	router.HandleFunc("/api/", news.GetNews).Methods("GET")
+	router.HandleFunc("/api/{id}", news.GetNewsById).Methods("GET")
+	router.HandleFunc("/api/", news.CreateNews).Methods("POST")
+	router.HandleFunc("/api/", news.UpdateNews).Methods("PUT")
+	router.HandleFunc("/api/{id}", news.DeleteNews).Methods("DELETE")
 }

@@ -1,19 +1,31 @@
 package news
 
 import (
-	"backend-services/mongodbTest/src/config"
+	"backend-services/mongodbTest/src/utils"
 	"github.com/pkg/errors"
 	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type NewsService struct {
 	collection *mgo.Collection
 }
 
-func NewUserService(session *mgo.Session, config *config.MongoConfig) *NewsService {
-	collection := session.DB(config.DbName).C("news")
+var newsServiceStruct *NewsService
+
+func GetNewsService() *NewsService {
+	if newsServiceStruct == nil {
+		newsServiceStruct = NewNewsService()
+	}
+	return newsServiceStruct
+}
+
+func NewNewsService() *NewsService {
+	collection := utils.GetDatabaseClient().C("news")
 	return &NewsService{collection}
 }
+
+//----------------------------------------------------------------------------------------
 
 func (s *NewsService) CreateNews(news *News) error {
 	if news == nil {
@@ -33,6 +45,17 @@ func (s *NewsService) UpdateNews(news *News) error {
 	return s.collection.UpdateId(news.ID, &news)
 }
 
+func (s *NewsService) GetNews() ([]News, error) {
+	var newsList []News
+	err := s.collection.Find(nil).All(&newsList)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return newsList, nil
+}
+
 func (s *NewsService) GetNewsById(id string) (*News, error) {
 	if id == "" {
 		return nil, errors.New("id must not be null")
@@ -40,7 +63,9 @@ func (s *NewsService) GetNewsById(id string) (*News, error) {
 
 	response := News{}
 
-	err := s.collection.FindId(id).One(&response)
+	oid := bson.ObjectIdHex(id)
+
+	err := s.collection.FindId(oid).One(&response)
 
 	return &response, err
 }
@@ -50,5 +75,7 @@ func (s *NewsService) DeleteNewsById(id string) error {
 		return errors.New("id must not be null")
 	}
 
-	return s.collection.RemoveId(id)
+	oid := bson.ObjectIdHex(id)
+
+	return s.collection.RemoveId(oid)
 }

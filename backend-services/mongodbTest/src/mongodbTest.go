@@ -1,6 +1,7 @@
 package main
 
 import (
+	"backend-services/mongodbTest/src/config"
 	"backend-services/mongodbTest/src/router"
 	"log"
 	"net/http"
@@ -8,6 +9,8 @@ import (
 
 func main() {
 	log.Print("Starting mongodbTest service ...")
+
+	config.RegisterServiceWithConsul()
 
 	routeHandler := router.SetupRouters()
 

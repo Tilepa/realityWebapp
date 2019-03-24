@@ -11,6 +11,7 @@ func main() {
 	log.Print("Starting mongodbTest service ...")
 
 	config.RegisterServiceWithConsul()
+	go config.UpdateConfiguration()
 
 	routeHandler := router.SetupRouters()
 

@@ -2,8 +2,10 @@ package config
 
 import (
 	"encoding/json"
-	consulapi "github.com/hashicorp/consul/api"
 	"log"
+	"time"
+
+	consulapi "github.com/hashicorp/consul/api"
 )
 
 type configuration struct {
@@ -12,19 +14,28 @@ type configuration struct {
 }
 
 type MongoConfig struct {
-	Ip 		string 	`json:"ip,omitempty"`
-	DbName 	string 	`json:"dbName,omitempty"`
-	Port 	int64 	`json:"port,omitempty"`
+	Ip     string `json:"ip,omitempty"`
+	DbName string `json:"dbName,omitempty"`
+	Port   int64  `json:"port,omitempty"`
 }
 
 type ServerConfig struct {
-	Port 	int64 	`json:"port,omitempty"`
+	Port int64 `json:"port,omitempty"`
 }
-
 
 var configInstance *configuration
 
-func GetConfiguration() *configuration  {
+func UpdateConfiguration() {
+	for {
+		configuration := loadConfigFromConsul()
+		if configuration != nil {
+			configInstance = configuration
+		}
+		time.Sleep(time.Second * 10)
+	}
+}
+
+func GetConfiguration() *configuration {
 	if configInstance == nil {
 		configInstance = loadConfigFromConsul()
 	}
@@ -57,7 +68,7 @@ func loadConfigFromConsul() *configuration {
 		return nil
 	}
 
-	log.Printf("New configuration from consul: \n %s", val)
+	log.Printf("Updated configuration from consul: \n %s", val)
 
 	return configurationStruct
 }

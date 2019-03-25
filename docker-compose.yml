@@ -14,7 +14,7 @@ services:
     image: mongo
     volumes:
       - mongodb:/data/db
-      - mongodb_config:/data/configdb
+      - mongodbConfig:/data/configdb
     ports:
         - 27017:27017
     networks:
@@ -22,9 +22,8 @@ services:
     command: mongod
 
 volumes:
-  db-volume:
   mongodb:
-  mongodb_config:
+  mongodbConfig:
 
 networks: 
   realityNetwork:

@@ -3,18 +3,17 @@ pipeline {
     stages {
         stage('build') {
             steps {
-				sh 'docker-compose –f docker-compose-utf-8.yml rm -f'
-				sh 'docker-compose –f docker-compose-utf-8.yml build'
+				sh 'docker-compose -f docker-compose.yml build'
             }
         }
 		stage('test') {
 			steps {
-				sh 'docker-compose –f docker-compose-utf-8.yml run -–rm'
+				sh 'docker-compose -f docker-compose.yml run --rm'
 			}
 		}
 		stage('deploy') {
       		steps {
-				  sh 'docker-compose –f docker-compose-utf-8.yml run'
+				  sh 'docker-compose -f docker-compose.yml run'
 			}
 		}
     }

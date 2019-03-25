@@ -8,12 +8,12 @@ pipeline {
         }
 		stage('test') {
 			steps {
-				sh 'docker-compose -f docker-compose.yml run --rm'
+				sh 'echo "Currently there is no testing"'
 			}
 		}
 		stage('deploy') {
       		steps {
-				  sh 'docker-compose -f docker-compose.yml run'
+				  sh 'docker-compose -f docker-compose.yml up -d'
 			}
 		}
     }

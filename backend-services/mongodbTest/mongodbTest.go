@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"mongodbTest/src/config"
 	"mongodbTest/src/router"
@@ -15,6 +16,9 @@ func main() {
 
 	routeHandler := router.SetupRouters()
 
-	log.Print("mongodbTest service is listening on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", routeHandler))
+	port := config.ServerPort()
+	port = fmt.Sprintf(":%v", port)
+
+	log.Printf("mongodbTest service is listening on port %v", port)
+	log.Fatal(http.ListenAndServe(port, routeHandler))
 }

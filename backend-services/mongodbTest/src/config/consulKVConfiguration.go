@@ -49,12 +49,12 @@ func loadConfigFromConsul() *configuration {
 		log.Fatal(err)
 		return nil
 	}
-	kvPair, _, err := consul.KV().Get("mongodbTest", nil)
+	kvPair, _, err := consul.KV().Get(ConsulConfigurationKey(), nil)
 	if err != nil {
 		log.Fatal(err)
 		return nil
 	}
-	if kvPair.Value == nil {
+	if kvPair == nil || kvPair.Value == nil {
 		log.Printf("Configuration empty")
 		return nil
 	}

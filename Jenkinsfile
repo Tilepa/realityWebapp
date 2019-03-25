@@ -1,9 +1,8 @@
 pipeline {
-    agent { docker { image 'golang' } }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'go version'
 				sh 'ls -nal'
 				sh 'docker-compose -f docker-compose.yml build'
             }

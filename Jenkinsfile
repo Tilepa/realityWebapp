@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'consul' }
-    }
+    agent any
     stages {
         stage('build') {
             steps {

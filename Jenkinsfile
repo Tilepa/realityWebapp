@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-				sh 'docker-compose –f docker-compose.yml build –rm'
+				sh 'docker-compose –f docker-compose.yml build'
             }
         }
 		stage('test') {
 			steps {
-				sh 'docker-compose –f docker-compose.yml run –rm'
+				sh 'docker-compose –f docker-compose.yml run -–rm'
 			}
 		}
 		stage('deploy') {

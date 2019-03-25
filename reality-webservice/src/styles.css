@@ -1,7 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
 @font-face {
   font-family: 'TraditionSansXLight';
   src: url("assets/TraditionSansXLight/TraditionSansXLight.ttf") format("truetype");
+}
+
+h2 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+@media only screen and (min-width: 680px) {
+  .reality-container {
+    max-width: 40em;
+    padding: 50px;
+    box-shadow: 0 0 10px rgb(220,220,220);
+    border-radius: 5px;
+  }
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.reality-container {
+  margin-top: 20px;
 }
 
 .grid-container {
@@ -16,7 +41,41 @@
   margin: 50px;
 }
 
-.reality-focusstyle:focus {
-  border-color: rgba(105, 105, 105, .6);
+/* Own CSS-rules */
+.reality-btn-hover:enabled:hover {
+  border-color: rgba(105, 105, 105, .2);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(105, 105, 105, .6);
+}
+
+.reality-focus:focus {
+  border-color: rgba(105, 105, 105, .2);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(105, 105, 105, .6);
+}
+
+.reality-invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.reality-invalid-tooltip {
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  display: block;
+  max-width: 100%;
+  padding: .5rem;
+  margin-top: .1rem;
+  font-size: .875rem;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(220, 53, 69, 0.8);
+  border-radius: .2rem;
+}
+
+::selection, select:focus::-ms-value {
+  background-color: gray;
+  color: orange;
 }

@@ -1,33 +1,45 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from "@angular/router";
-
+import {
+  MatTabsModule, MatTooltipModule, MatButtonModule, MatFormFieldModule,
+  MatInputModule, MatTableModule, MatSortModule
+} from '@angular/material';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from './app.component';
-import { LosnummerComponent } from './losnummer/losnummer.component';
-import { BewertungComponent } from './bewertung/bewertung.component';
-import { UnternehmenService } from "./_services/unternehmen.service";
-
-const routes: Routes = [
-  { path: 'losnummer', component: LosnummerComponent },
-  { path: 'bewertung', component: BewertungComponent },
-  { path: '**', component: LosnummerComponent },
-];
+import { routing, routingComponents, routingGuards } from "./app.routing";
+import { UnternehmenService } from "./_services/unternehmen-service/unternehmen.service";
+import { LosnummerService } from "./_services/losnummer-service/losnummer.service";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LosnummerComponent,
-    BewertungComponent
+    ...routingComponents,
+    AppComponent
   ],
   imports: [
+    routing,
+    MatTabsModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    BrowserAnimationsModule
   ],
-  providers: [UnternehmenService],
-  bootstrap: [AppComponent]
+  providers: [
+    ...routingGuards,
+    Title,
+    UnternehmenService,
+    LosnummerService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
+
 export class AppModule { }

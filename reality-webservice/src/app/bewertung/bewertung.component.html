@@ -1,15 +1,27 @@
-<div class="container" id="container-bewertung">
+<div class="container reality-container">
   <!-- Bewertung Vortrag oder Gespraech am Messestand -->
   <p class="font-weight-bold">
     Ich habe auf der REALITY an dem
   </p>
+
   <div class="container mt-3 mb-3">
-    <label class="radio-container">Vortrag/Präsentation
-      <input type="radio" name="radioBesuchsart" id="radio-vort">
+    <!-- Radiobutton: Vortrag bzw. Präsentation -->
+    <label class="radio-container">
+      Vortrag/Präsentation
+      <input type="radio"
+             name="radioBesuchsart"
+             id="radio-vort"
+      >
       <span class="checkmark"></span>
     </label>
-    <label class="radio-container">Gespräch am Messestand
-      <input type="radio" name="radioBesuchsart" id="radio-gespr">
+
+    <!-- Radiobutton: Gespräch am Messestand -->
+    <label class="radio-container">
+      Gespräch am Messestand
+      <input type="radio"
+             name="radioBesuchsart"
+             id="radio-gespr"
+      >
       <span class="checkmark"></span>
     </label>
   </div>
@@ -19,9 +31,20 @@
     des folgenden Unternehmens teilgenommen:
   </p>
   <div class="container mt-3 mb-3">
-    <select class="custom-select mt-3 mb-3 reality-focusstyle" id="select-unte" #selComp>
-      <option selected>Name des Unternehmens</option>
-      <option *ngFor="let item of unternehmensListe" [value]="item.id">{{item.name}}</option>
+    <!-- Select Element: Untennehmensliste -->
+    <select class="custom-select mt-3 mb-3 reality-focusstyle"
+            id="select-unte"
+            #selComp
+    >
+      <option selected>
+        Name des Unternehmens
+      </option>
+      <!-- NgFor Loop: Fügt die einzelenen Untenehmen dem Select-Element hinzu -->
+      <option *ngFor="let item of unternehmensListe"
+              [value]="item.id"
+      >
+        {{item}}
+      </option>
     </select>
   </div>
 
@@ -97,17 +120,34 @@
   </p>
   <div class="container">
     <div class="form-group">
-      <label for="text-firstname" class="form-">Vorname</label>
-      <input type="text" class="form-control reality-focusstyle" id="text-firstname" placeholder="bitte eingeben" required>
-      <label for="text-lastname">Nachname</label>
-      <input type="text" class="form-control reality-focusstyle" id="text-lastname" placeholder="bitte eingeben" required>
+      <label for="text-firstname"
+             class="form-"
+      >
+        Vorname
+      </label>
+      <input type="text"
+             class="form-control reality-focusstyle"
+             id="text-firstname"
+             placeholder="bitte eingeben"
+             required
+      >
+      <label for="text-lastname">
+        Nachname
+      </label>
+      <input type="text"
+             class="form-control reality-focusstyle"
+             id="text-lastname"
+             placeholder="bitte eingeben"
+             required
+      >
     </div>
   </div>
 
   <!-- Submit -->
   <div class="container">
-    <button class="btn btn-primary">Bewertung abgeben</button>
-    <a class="btn reality-focusstyle">Bewertung abgeben</a>
+    <button class="btn reality-focusstyle">
+      Bewertung abgeben
+    </button>
   </div>
 
   <!-- Schlusstext -->

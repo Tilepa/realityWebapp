@@ -1,0 +1,42 @@
+<form class="form-signin" (ngSubmit)="logIn(userName.value, password.value)">
+  <div class="row">
+    <h2 style="text-align: center;"
+        class="form-signin-heading"
+    >
+      Anmelden
+    </h2>
+
+    <label for="inputEmail"
+           class="sr-only"
+    >
+      Benutzername
+    </label>
+    <input #userName
+           id="inputEmail"
+           class="form-control reality-focus"
+           placeholder="Benutzername"
+           autofocus
+           required=""
+    >
+
+    <label for="inputPassword"
+           class="sr-only"
+    >
+      Passwort
+    </label>
+    <input #password
+           type="password"
+           id="inputPassword"
+           class="form-control reality-focus"
+           placeholder="Passwort"
+           required=""
+    >
+
+    <button class="btn btn-block btn-lg reality-focus reality-btn-hover"
+            type="submit"
+    >
+      Anmelden
+    </button>
+  </div>
+</form>
+

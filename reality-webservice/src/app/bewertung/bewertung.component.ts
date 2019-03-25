@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Unternehmen } from "../_models/unternehmen";
-import { UnternehmenService } from "../_services/unternehmen.service";
+import { Unternehmen } from "../_enums/unternehmen.enum";
+import { UnternehmenService } from "../_services/unternehmen-service/unternehmen.service";
 
 @Component({
   selector: 'app-bewertung',
@@ -9,12 +9,12 @@ import { UnternehmenService } from "../_services/unternehmen.service";
 })
 export class BewertungComponent implements OnInit {
 
-  unternehmensListe: Unternehmen[];
+  unternehmensListe: Array<string> = [];
 
-  constructor( private unternehmensService: UnternehmenService) { }
+  constructor( private unternehmenService: UnternehmenService) { }
 
   ngOnInit() {
-    this.unternehmensListe = this.unternehmensService.unternehmensListe;
+    this.unternehmensListe = this.unternehmenService.getListOfCompanys();
   }
 
 }

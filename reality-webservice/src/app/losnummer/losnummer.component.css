@@ -1,12 +1,1 @@
-@media only screen and (min-width: 680px) {
-  #losnummer-container {
-    max-width: 40em;
-    padding: 50px;
-    box-shadow: 0 0 10px rgb(220,220,220);
-    border-radius: 5px;
-  }
-}
-
-#losnummer-container {
-  margin-top: 20px;
-}
+@import "../../styles.css";

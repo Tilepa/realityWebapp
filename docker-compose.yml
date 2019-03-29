@@ -52,6 +52,18 @@ services:
       - realityNetwork
     command: mongod
 
+  webui:
+    build: ./reality-webservice
+    restart: always
+    networks:
+      - realityNetwork
+    ports:
+      - 4200:4200
+    labels:
+      - "traefik.enabled=true"
+      - "traefik.frontend.rul=PathPrefixStrip:/app/ui"
+      - "traefik.port=4200"
+
   mongodbtest:
     build: ./backend-services/mongodbTest
     restart: always

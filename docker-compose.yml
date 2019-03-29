@@ -58,11 +58,11 @@ services:
     networks:
       - realityNetwork
     ports:
-      - 4200:4200
+      - 4200:80
     labels:
       - "traefik.enabled=true"
-      - "traefik.frontend.rul=PathPrefixStrip:/app/ui"
-      - "traefik.port=4200"
+      - "traefik.frontend.rule=PathPrefixStrip:/app/ui;PathPrefix:/app/ui"
+      - "traefik.port=80"
 
   mongodbtest:
     build: ./backend-services/mongodbTest

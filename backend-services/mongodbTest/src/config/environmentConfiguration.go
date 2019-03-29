@@ -6,6 +6,10 @@ func ServerPort() string {
 	return getEnvOrElse("SERVER_PORT", "8080")
 }
 
+func ServerAddress() string {
+	return getEnvOrElse("SERVER_ADDRESS", "localhost")
+}
+
 func ConsulConfigurationKey() string {
 	return getEnvOrElse("CONSUL_CONFIG_KEY", "dev/mongodbTest")
 }

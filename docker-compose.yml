@@ -1,8 +1,8 @@
 version: '3.5'
 services:
   consul:
-    image: consul
-    command: consul agent -dev -ui -client 0.0.0.0
+    build: ./consul
+    restart: always
     networks: 
       - realityNetwork
     ports:
@@ -12,6 +12,7 @@ services:
       - 8600:8600/udp
   mongodb:
     image: mongo
+    restart: always
     volumes:
       - mongodb:/data/db
       - mongodbConfig:/data/configdb

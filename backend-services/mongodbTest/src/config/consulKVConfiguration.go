@@ -9,18 +9,13 @@ import (
 )
 
 type configuration struct {
-	Mongo  *MongoConfig  `json:"mongo,omitempty"`
-	Server *ServerConfig `json:"server,omitempty"`
+	Mongo *MongoConfig `json:"mongo,omitempty"`
 }
 
 type MongoConfig struct {
 	Ip     string `json:"ip,omitempty"`
 	DbName string `json:"dbName,omitempty"`
 	Port   int64  `json:"port,omitempty"`
-}
-
-type ServerConfig struct {
-	Port int64 `json:"port,omitempty"`
 }
 
 var configInstance *configuration

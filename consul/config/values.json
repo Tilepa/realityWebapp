@@ -1,0 +1,12 @@
+[
+        {
+                "key": "dev/mongodbTest",
+                "flags": 0,
+                "value": "ewoJIm1vbmdvIjogewoJCSJpcCI6ICJsb2NhbGhvc3QiLAoJCSJwb3J0IjogMjcwMTcsCgkJImRiTmFtZSI6ICJuZXdzREIiCgl9Cn0="
+        },
+        {
+                "key": "docker/mongodbTest",
+                "flags": 0,
+                "value": "ewoJIm1vbmdvIjogewoJCSJpcCI6ICJtb25nb2RiIiwKCQkicG9ydCI6IDI3MDE3LAoJCSJkYk5hbWUiOiAibmV3c0RCIgoJfQp9"
+        }
+]

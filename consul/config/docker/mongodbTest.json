@@ -1,0 +1,7 @@
+{
+	"mongo": {
+		"ip": "mongodb",
+		"port": 27017,
+		"dbName": "newsDB"
+	}
+}

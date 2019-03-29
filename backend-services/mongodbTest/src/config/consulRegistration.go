@@ -2,12 +2,12 @@ package config
 
 import (
 	"fmt"
-	consulapi "github.com/hashicorp/consul/api"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
-	"strings"
+
+	consulapi "github.com/hashicorp/consul/api"
 )
 
 func RegisterServiceWithConsul() {
@@ -17,7 +17,7 @@ func RegisterServiceWithConsul() {
 		log.Fatalln(err)
 	}
 	registration := new(consulapi.AgentServiceRegistration)
-	registration.ID = "mongodbTest-service" //replace with service id
+	registration.ID = "mongodbTest-service"   //replace with service id
 	registration.Name = "mongodbTest-service" //replace with service name
 	address := hostname()
 	registration.Address = address
@@ -36,11 +36,7 @@ func RegisterServiceWithConsul() {
 }
 
 func port() string {
-	p := os.Getenv("PRODUCT_SERVICE_PORT")
-	if len(strings.TrimSpace(p)) == 0 {
-		return ":8080"
-	}
-	return fmt.Sprintf(":%s", p)
+	return fmt.Sprintf(":%s", ServerPort())
 }
 
 func hostname() string {

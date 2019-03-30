@@ -1,5 +1,5 @@
 backend-services/src/github.com/
-
+.vscode
 # Compiled class file
 *.class
 

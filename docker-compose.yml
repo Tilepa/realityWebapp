@@ -17,14 +17,6 @@ services:
       - "traefik.frontend.rule=PathPrefixStrip:/traefik/"
       - "traefik.port=8080"
 
-  whoami:
-    image: containous/whoami # A container that exposes an API to show its IP address
-    networks:
-      - realityNetwork
-    labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=PathPrefixStrip:/whoami/"
-
   consul:
     build: ./consul
     restart: always
@@ -57,8 +49,6 @@ services:
     restart: always
     networks:
       - realityNetwork
-    ports:
-      - 4200:80
     labels:
       - "traefik.enabled=true"
       - "traefik.frontend.rule=PathPrefixStrip:/app/ui;PathPrefix:/app/ui"
@@ -71,8 +61,6 @@ services:
       - SERVER_PORT=8081
       - CONSUL_HTTP_ADDR=consul:8500
       - CONSUL_CONFIG_KEY=docker/mongodbTest
-    ports:
-     - "8081:8081"
     networks:
       - realityNetwork
     labels:

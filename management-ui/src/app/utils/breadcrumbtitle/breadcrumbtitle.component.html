@@ -1,0 +1,18 @@
+<!-- header area end -->
+<!-- page title area start -->
+<div class="page-title-area">
+  <div class="row align-items-center">
+    <div class="col-sm-6 clearfix">
+      <div class="breadcrumbs-area clearfix">
+        <h4 class="page-title pull-left">{{breadcrumb.title}}</h4>
+        <ul class="breadcrumbs pull-left">
+          <li *ngFor="let b of breadcrumb.routes">
+            <a *ngIf="b.ref !== null" href="{{b.ref}}">{{b.title}}</a>
+            <span *ngIf="b.ref === null">{{b.title}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- page title area end -->

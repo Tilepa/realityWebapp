@@ -6,7 +6,6 @@ services:
     restart: always
     ports:
       - 80:80
-      - 8080:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik/traefik.toml:/trafik.toml
@@ -22,11 +21,6 @@ services:
     restart: always
     networks: 
       - realityNetwork
-    ports:
-      - 8400:8400
-      - 8500:8500
-      - 8600:8600
-      - 8600:8600/udp
     labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=PathPrefixStrip:/consul/"
@@ -38,8 +32,6 @@ services:
     volumes:
       - mongodb:/data/db
       - mongodbConfig:/data/configdb
-    ports:
-        - 27017:27017
     networks:
       - realityNetwork
     command: mongod

@@ -1,0 +1,76 @@
+version: '3.5'
+services:
+  traefik:
+    image: traefik
+    command: --api --docker
+    restart: always
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.toml:/trafik.toml
+    networks:
+      - realityNetwork
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=PathPrefixStrip:/traefik/"
+      - "traefik.port=8080"
+
+  consul:
+    build: ./consul
+    restart: always
+    networks: 
+      - realityNetwork
+    ports:
+      - 8400:8400
+      - 8500:8500
+      - 8600:8600
+      - 8600:8600/udp
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=PathPrefixStrip:/consul/"
+      - "traefik.port=8500"
+
+  mongodb:
+    image: mongo
+    restart: always
+    volumes:
+      - mongodb:/data/db
+      - mongodbConfig:/data/configdb
+    ports:
+        - 27017:27017
+    networks:
+      - realityNetwork
+    command: mongod
+
+  webui:
+    build: ./reality-webservice
+    restart: always
+    networks:
+      - realityNetwork
+    labels:
+      - "traefik.enabled=true"
+      - "traefik.frontend.rule=PathPrefixStrip:/app/ui;PathPrefix:/app/ui"
+      - "traefik.port=80"
+
+  mongodbtest:
+    build: ./backend-services/mongodbTest
+    restart: always
+    environment:
+      - SERVER_PORT=8081
+      - CONSUL_HTTP_ADDR=consul:8500
+      - CONSUL_CONFIG_KEY=docker/mongodbTest
+    networks:
+      - realityNetwork
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=PathPrefixStrip:/app/mongodbtest"
+      - "traefik.port=8081"
+volumes:
+  mongodb:
+  mongodbConfig:
+
+networks: 
+  realityNetwork:
+    driver: bridge

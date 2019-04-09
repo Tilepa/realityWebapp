@@ -4,8 +4,6 @@ pipeline {
 		stage('clean') {
             steps {
 				sh 'docker-compose -f docker-compose.yml down --remove-orphans'
-				sh 'docker stop $(docker ps -a -q)'
-				sh 'docker rm $(docker ps -a -q)'
             }
         }
         stage('build') {

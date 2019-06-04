@@ -10,21 +10,20 @@ export class InfoComponent implements OnInit {
 
   constructor() {
     this.programmList = [
-      ['10:10', 'OpusCapita Software', 'Software aus`m Pott', 'Arithnea GmbH', 'Dein Einstieg bei ARITHNEA – Technisch, kreativ, unkompliziert!'],
-      ['10:35', 'adesso mobile solutions', '"Ask Mercedes" by adesso mobile solutions', 'Conciso GmbH', 'Exzellente Coder sind die wahren Superhelden unserer Zeit. #codingman'],
-      ['11:00', 'itemis AG', 'Werde Software Craftsman bei itemis', 'PSI Software AG', 'Smart software for a sustainable planet - Karrierepfade bei der PSI Software AG'],
-      ['11:25', 'AutoForm Engineering', 'Von der Dissertation zum Weltmarktführer', 'Vanderlande Industries', 'Ein Blick hinter die Kulissen eines Weltmarktführers im Bereich der Intralogistik'],
-      ['11:50', 'G Data Software AG', 'Entwicklung von verteilten Systemen zur Datenanalyse', 'msg systems ag', 'Mit Machine Learning und Big Data zum digitalen Staat'],
-      ['12:15', 'e-Spirit AG', 'e-Spirit - wir sind nicht dieser Klamottenladen', 'Knipp Medien', '"Beyond Scrum" - Agile Softwareentwicklung in einem dynamischen Umfeld'],
-      ['12:40', 'mindsquare GmbH', '(Wirtschafts-)Informatiker im Vorstellungsgespräch - Do´s und Don´ts um erfolgreich zu überzeugen', 'Ifasec GmbH', 'Device Flut und Innentäter – Neue Ansätze für ein adaptives Infrastructure Security Managment'],
-      ['13:05', 'Zalando', 'Skills von morgen', 'Fincon', 'FINCON – Modernes Arbeiten in Großkundenprojekten'],
-      ['13:30', 'com2m', 'IoT made im Ruhrgebiet: Technologien und Architektur für das Internet of Things', 'Networkers AG', 'Network Up Your Life!'],
-      ['13:55', 'Capgemini', 'Unser Einstieg bei Capgemini - Erfahrungsberichte von Berufseinsteigern', 'Cema GmbH', 'Komplexe IT Infrastrukturen sind unsere Leidenschaft!'],
-      ['14:20', 'Materna GmbH', 'Cloud == 7?', 'W3L AG', 'Wer braucht schon Softwareentwickler?'],
-      ['14:45', 'Check24', 'Softwareentwicklung bei CHECK24 in Münster', 'viadee', 'Gekommen, um zu bleiben'],
-      ['15:10', 'itestra GmbH', 'Ganzheitliche Betriebsüberwachung: Durchblick im Anwendungs-Dschungel', 'Crosscan GmbH', 'Informatiker sind Programmierer?'],
-      ['15:35', 'adesso AG', 'Karriereperspektiven bei adesso', 'andrena objects ag', 'Agile Software Entwicklung – mehr als Scrum'],
-      ['16:00', 'Accenture', 'Gemeinsam mehr erreichen. Starten Sie Ihre Karriere bei Accenture.', 'Comline AG', 'Comline - ein Blick hinter die Kulissen'],
+      ['10:10', 'TEDi', 'IT in der Logistik - Anwendungsentwicklung zwischen Paletten und Cloud', 'Aleri Solutions', 'Dein Einstieg bei ARITHNEA - Technisch, kreativ, unkomplitziert!'],
+      ['10:35', 'Bayer', 'BAYER: "#dcc19 - Wie digital wird Bayer im Jahr 2030 sein?"', 'Knipp Media', 'Mittendrin statt nur dabei - die Arbeit als Werkstudent bei Knipp'],
+      ['11:00', 'Materna SE', 'Cloud == 7', 'CDI', 'Cloud Native Java - Mit CDI in 15 Minuten in die Cloud!'],
+      ['11:25', 'com2m', 'IoT made im Ruhrgebiet', 'Brockhaus', 'Ein tag im Leben von ...'],
+      ['11:50', 'Uniq', '', 'Open Knowledge', ''],
+      ['12:15', 'Capgemini', '', 'Comline', ''],
+      ['12:40', 'Fak. f. Informatik', '', 'Pixelboxx', ''],
+      ['13:05', 'SCISYS', '', 'Crosscan', ''],
+      ['13:30', 'msg', '', 'MotionMiners', ''],
+      ['13:55', 'Huawei', '', 'Continentale', ''],
+      ['14:20', 'img.ly', '', 'otris software', ''],
+      ['14:45', 'e-Spirit', '', 'Swyx Solutions', ''],
+      ['15:10', 'G DATA', '', 'itemis AG', ''],
+      ['15:35', 'VMRay', '', 'Networkers', '']
     ];
   }
 

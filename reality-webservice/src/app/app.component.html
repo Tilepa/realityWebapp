@@ -1,16 +1,18 @@
 <header class="sticky-top">
   <i class="fa fa-sign-in fa-lg btn btn-outline-dark"
-     *ngIf="!isLoggendIn"
+     *ngIf="!isLoggedIn"
      routerLink="/dashbord"
      style="position: absolute; right: 16px; top:16px"
   ></i>
   <i class="fa fa-sign-out fa-lg btn btn-outline-dark"
-     *ngIf="isLoggendIn"
+     *ngIf="isLoggedIn"
      routerLink="/losnummer"
      style="position: absolute; right: 16px; top:16px"
      (click)="logOut()"
   ></i>
-  <img src="../assets/reality_logo_400px.png" alt="Reality Logo" width="200px">
+  <a routerLink="/info">
+    <img src="../assets/reality_logo_400px.png" alt="Reality Logo" width="200px">
+  </a>
   <h1 style="margin: 0">
     {{title}}
   </h1>

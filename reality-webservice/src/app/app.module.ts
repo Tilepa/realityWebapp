@@ -1,16 +1,20 @@
-import { BrowserModule, Title } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule, Title} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 import {
   MatTabsModule, MatTooltipModule, MatButtonModule, MatFormFieldModule,
   MatInputModule, MatTableModule, MatSortModule
 } from '@angular/material';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AppComponent } from './app.component';
-import { routing, routingComponents, routingGuards } from "./app.routing";
-import { UnternehmenService } from "./_services/unternehmen-service/unternehmen.service";
-import { LosnummerService } from "./_services/losnummer-service/losnummer.service";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppComponent} from './app.component';
+import {routing, routingComponents, routingGuards} from './app.routing';
+import {UnternehmenService} from './_services/unternehmen-service/unternehmen.service';
+import {LosnummerService} from './_services/losnummer-service/losnummer.service';
+import {AngularFireModule} from '@angular/fire';
+import {FIREBASE_CONFIG} from './firebase.config';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { LosnummerService } from "./_services/losnummer-service/losnummer.servic
     BrowserModule,
     FormsModule,
     HttpModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [
     ...routingGuards,
@@ -42,4 +49,5 @@ import { LosnummerService } from "./_services/losnummer-service/losnummer.servic
   ]
 })
 
-export class AppModule { }
+export class AppModule {
+}

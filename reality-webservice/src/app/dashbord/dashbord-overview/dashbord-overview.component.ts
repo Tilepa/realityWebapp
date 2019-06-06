@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LosnummerService } from "../../_services/losnummer-service/losnummer.service";
-import { UnternehmenService } from "../../_services/unternehmen-service/unternehmen.service";
+import { LosnummerService } from '../../_services/losnummer-service/losnummer.service';
+import { UnternehmenService } from '../../_services/unternehmen-service/unternehmen.service';
 
 @Component({
   selector: 'app-dashbord-overview',
@@ -35,5 +35,9 @@ export class DashbordOverviewComponent implements OnInit {
   // Return einer Liste aus einem Tuple [Unternehmen, Anzahl] von Bewertungen
   getListOfUtilzedCompanys(): Array<[string, number, number, number]> {
     return this.losnummerService.getListOfCompanyReviews();
+  }
+
+  test() {
+    this.unternehmenService.createList();
   }
 }

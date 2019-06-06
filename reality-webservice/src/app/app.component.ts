@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from "./_services/login-service/login.service";
-import { Observable} from "rxjs/internal/Observable";
+import { LoginService } from './_services/login-service/login.service';
+import { Observable} from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { Observable} from "rxjs/internal/Observable";
 })
 export class AppComponent implements OnInit{
   title = 'WILLKOMMEN';
-  isLoggendIn: boolean;
+  isLoggedIn: boolean;
 
   constructor( private loginService: LoginService ) {
   }
@@ -25,10 +25,10 @@ export class AppComponent implements OnInit{
   }
 
   private updateLoginStatus(): void {
-    // this.loginService.isLoggendIn.subscribe( (value) => {
-    //     this.isLoggendIn = value;
+    // this.loginService.loggedIn.subscribe( (value) => {
+    //     this.loggedIn = value;
     //   }
     // );
-    this.isLoggendIn = this.loginService.isLoggedIn();
+    this.isLoggedIn = this.loginService.isLoggedIn();
   }
 }
